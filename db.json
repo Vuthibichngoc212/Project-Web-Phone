@@ -1,0 +1,155 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Nguyen Van A",
+      "username": "A",
+      "password": "123",
+      "gender": "nam",
+      "role": "user",
+      "email": "vanA@gmail.com",
+      "phone": "123456789",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough"
+      }
+    },
+    {
+      "email": "ngoctest@gmail.com",
+      "password": "$2b$10$btIXxTKTD3eYXDqVbBDxguY8yd3Hw7Z4zZXhLlkU8qf5wWmKdIOzO",
+      "id": "5jH-FFi"
+    },
+    {
+      "email": "ngoctest12@gmail.com",
+      "password": "$2b$10$MPI/tbB0aRBe.ChY.KlqmeRDkYcVReTHGdzJgWPySHvDoycz77tQe",
+      "id": "rOdYR_A"
+    },
+    {
+      "email": "ngoc@gmail",
+      "password": "$2b$10$.eaXA./7wE57g8b.d5qlIueh9qVn6dkK/3SrgXT/uSAv0f6ZBzU.W",
+      "id": "UXFwAYV"
+    },
+    {
+      "email": "123@gmail.com",
+      "password": "$2b$10$v45EZiIvW.Yk5h/5k4cxEuWqNPxlZJFnDonhMllCSI62yFNxwsdr6",
+      "id": "jBfIc6X"
+    },
+    {
+      "email": "abc123@gmail.com",
+      "password": "$2b$10$Chjog1ML0dV9OmM.8jrMROPjGxxzqV5j/EosVfzqyhwNYLQJL/1Xe",
+      "id": "ZJpPnrJ"
+    },
+    {
+      "email": "111bbbb@gmail.com",
+      "password": "$2b$10$o9yhOtmVf65cJY4gdmw68.qeEOUEqPbIwPUMHzkAeQdbaAe3/BmYK",
+      "id": "8bVqFUV"
+    },
+    {
+      "address": "",
+      "gender": "",
+      "name": "Bích Ngọc",
+      "email": "bichngocTest@gmail.com",
+      "phone": "111115993",
+      "password": "$2b$10$Seov/tVthBhTZ12LOfVQbeJuwh1TXCf4RLd4PTK1jNYzHpTt5MgkO",
+      "id": "QReZQY2"
+    },
+    {
+      "role": "user",
+      "email": "12345@gmail.com",
+      "password": "$2b$10$A2T9uPlJ7LXN7zCUdZRPSeomU/tKyeS2P8ZQ7NvAjcvOiBRxIHAma",
+      "confirmPassword": "11",
+      "id": "gsvMH3A"
+    },
+    {
+      "role": "user",
+      "email": "fgffgfgf@gmail.com",
+      "password": "$2b$10$QFM1ofsqXPnh2uLUgyc7yejjzJXZlyWjvk6NRHUefzELX23KRfNgi",
+      "confirmPassword": "1",
+      "id": "hEWldM_"
+    },
+    {
+      "role": "user",
+      "email": "12333333@gmail.com",
+      "password": "$2b$10$JKBbEpuitCy9bWZN38a1Eesg.MWSi4SKeiMWXbyuhd4gL4EdMkYUO",
+      "confirmPassword": "1",
+      "id": "egCBbgH"
+    },
+    {
+      "role": "user",
+      "email": "son@gmail.com",
+      "password": "$2b$10$5EpGmBV1u4C/Wp.lK0jhjODpQ8aUe3BmfMKqq/QPkpZtSKElmwEDG",
+      "confirmPassword": "1",
+      "id": "C1hLb0M"
+    },
+    {
+      "role": "admin",
+      "email": "admin@gmail.com",
+      "password": "$2b$10$g8DphaWzVLLeSQJgJ8Zh.esz1Rq5fEQ/s5ewG.H8mjkyV93H2ab9W",
+      "confirmPassword": "123123",
+      "id": "fywjPG9"
+    },
+    {
+      "role": "user",
+      "email": "123aaaa@gmail.com",
+      "password": "$2b$10$mjByTZnSLA8PUETqoy57Ze.bbANNxg9ba/94pdH.3E/wO0EoSMgL.",
+      "confirmPassword": "1",
+      "id": "EKV724J"
+    }
+  ],
+  "products": [
+    {
+      "id": "abc1",
+      "name": "Samsung Galaxy S22 5G 128GB ",
+      "description": "Mô tả sản phẩm XYZ",
+      "price": "124.900.00",
+      "brand": "XYZ Inc.",
+      "category": "Smartphone",
+      "imageURL": "link-to-image-of-product-XYZ",
+      "inStock": true
+    },
+    {
+      "id": "abc2",
+      "name": "Điện thoại AI Samsung Galaxy S24+",
+      "description": "Chào mừng bạn đến với Kỷ nguyên Điện thoại AI Quyền năng. Với Galaxy S24| S24+ trong tay, bạn sẽ tạo nên những đột phá trong sáng tạo vá công việc cũng như mở khóa những tiềm năng mới không giới hạn - tất cả đều bắt đầu từ chiếc điện thoại thông minh của bạn.",
+      "price": 900,
+      "brand": "XYZ Inc.",
+      "category": "Smartphone",
+      "imageURL": "link-to-image-of-product-XYZ",
+      "inStock": false
+    }
+  ],
+  "orders": [
+    {
+      "id": "a1",
+      "userId": 1,
+      "date": "2024-03-12",
+      "totalPrice": 20000000,
+      "products": [
+        {
+          "productId": 1,
+          "quantity": 2
+        }
+      ],
+      "status": "Đã giao",
+      "shippingAddress": "1 User Road, City",
+      "paymentMethod": "Credit Card",
+      "deliveryDate": "2024-03-15"
+    },
+    {
+      "id": "a2",
+      "userId": 1,
+      "date": "2024-03-12",
+      "products": [
+        {
+          "productId": 1,
+          "quantity": 2
+        }
+      ],
+      "status": "Đang chờ xử lý",
+      "shippingAddress": "1 User Road, City",
+      "paymentMethod": "Credit Card",
+      "deliveryDate": "2024-03-15"
+    }
+  ]
+}
