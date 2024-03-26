@@ -72,27 +72,6 @@ const Login: React.FC<LoginProps> = ({ onSignUpClicked }: LoginProps) => {
     } catch (error) {}
   };
 
-  // const onSubmit = async (data: IUser) => {
-  //   const users = await getUserLazy();
-  //   if (users?.data) {
-  //     const user = users?.data.find(
-  //       (user) => user.email === data.email && user.password === data.password
-  //     );
-  //     if (user) {
-  //       if (user.role === 'admin') {
-  //         navigate('/home');
-  //         // alert('Đăng nhập admin thành công');
-  //         return;
-  //       }
-  //       navigate('/home');
-  //       // alert('Đăng nhập nguoi dung thành công');
-  //       return;
-  //     }
-  //   }
-  //   // eslint-disable-next-line no-alert
-  //   alert('Thông tin đăng nhập không chính xác');
-  // };
-
   return (
     <>
       <StyledAll>
