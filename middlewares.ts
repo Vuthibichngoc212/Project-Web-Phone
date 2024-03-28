@@ -1,4 +1,6 @@
 const bcrypt = require('bcrypt');
+const Cookies = require ('js-cookie');
+const sign = require ('jwt-encode');
 const saltRounds = 10;
 module.exports = async function (req, res, next) {
   const fieldToCheck = 'email'; // Field you want to be unique
@@ -40,6 +42,10 @@ module.exports = async function (req, res, next) {
     if (!isCheck) {
       return res.status(401).json({ error: 'Password not match' });
     }
-    return res.status(200).json({ email: user.email, role: user.role });
+    const secret = 'secret';
+    const jwt = sign({ email: user.email, role: user.role }, secret);
+    // console.log(11, { email: user.email, role: user.role });
+
+    return res.status(200).json({ email: user.email, role: user.role,  accessToken: jwt });
   }
 };

@@ -1,18 +1,26 @@
 export interface IUser {
   id: number;
-  name: string;
-  password: string;
   role: string;
+  name: string;
   email: string;
-  phone: string;
+  password: string;
+  phone: number;
   gender: string;
   address: string;
+  birthday: Date | string;
+  avatar: File | string;
 }
+// export interface IUserLogin extends IUser {
+//   confirmPassword?: string;
+// }
 export interface IUserLogin {
   role: string;
   email: string;
   password: string;
-  confirmPassword: string;
+  confirmPassword?: string;
+  name: string;
+  phone: number;
+  gender: string;
 }
 
 export interface Product {
