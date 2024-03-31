@@ -148,6 +148,42 @@
       "birthday": "",
       "avatar": "",
       "id": "_qf-3ae"
+    },
+    {
+      "role": "user",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "name": "",
+      "email": "test09@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$lWVmjjL4bY6KJXbwV4rKQOUy9eWYJxMk4DC/QPtyCg0PmwFI/7I7C",
+      "id": "qqDQDDE"
+    },
+    {
+      "role": "user",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "name": "",
+      "email": "test08@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$ytDXyBODUTO7sPSVJtZHcuoZsLkV1OyETFlRZ3HLOoP1rf4NH2XtO",
+      "id": "2x-FwNP"
+    },
+    {
+      "role": "user",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "name": "",
+      "email": "test10@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$eaYj2xvWNSPq8ZIyNNd.EOlHBDeNTbCAPP40L4F46gRubHdOFiEjG",
+      "id": "X11PLQZ"
     }
   ],
   "products": [

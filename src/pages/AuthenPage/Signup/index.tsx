@@ -48,7 +48,10 @@ const SignUp: React.FC<SigUpProps> = ({ onClickLogin }: SigUpProps) => {
   } = useForm<IUserLogin>({
     shouldFocusError: false,
     defaultValues: {
-      role: 'user'
+      role: 'user',
+      address: '',
+      birthday: '',
+      avatar: ''
     }
   });
   const handleBlur = (value: string) => {

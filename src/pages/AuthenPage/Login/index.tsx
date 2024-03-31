@@ -16,7 +16,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { jwtDecode } from 'jwt-decode';
 import LockIcon from '@mui/icons-material/Lock';
 import Cookies from 'js-cookie';
 import Visibility from '@mui/icons-material/Visibility';
@@ -54,31 +53,30 @@ const Login: React.FC<LoginProps> = ({ onSignUpClicked }: LoginProps) => {
 
   const onSubmit = async (data: IUser) => {
     try {
-      const response: any = await loginUser(data);
-      if (response?.data) {
-        console.log(response?.data);
+      loginUser(data).then((response: any) => {
+        if (response?.data) {
+          const token = response?.data.accessToken;
+          Cookies.set('accessToken', token, {
+            expires: 7
+          });
 
-        const token = response?.data.accessToken;
-        Cookies.set('accessToken', response?.data.accessToken, { expires: 7 });
-
-        const decoded = jwtDecode(token);
-        // console.log(11, decoded);
-        if (response?.data.role === 'admin') {
+          if (response?.data.role === 'admin') {
+            navigate('/admin');
+          }
           navigate('/home');
-        }
-        navigate('/home');
 
-        toast.success('Đăng nhập thành công', {
+          toast.success('Đăng nhập thành công', {
+            theme: 'colored',
+            autoClose: 2000,
+            position: 'bottom-right'
+          });
+          return;
+        }
+        toast.error('Đăng nhập thất bại sai email hoặc password', {
           theme: 'colored',
           autoClose: 2000,
           position: 'bottom-right'
         });
-        return;
-      }
-      toast.error('Đăng nhập thất bại sai email hoặc password', {
-        theme: 'colored',
-        autoClose: 2000,
-        position: 'bottom-right'
       });
     } catch (error) {}
   };

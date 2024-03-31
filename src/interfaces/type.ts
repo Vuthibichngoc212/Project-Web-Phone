@@ -10,9 +10,6 @@ export interface IUser {
   birthday: Date | string;
   avatar: File | string;
 }
-// export interface IUserLogin extends IUser {
-//   confirmPassword?: string;
-// }
 export interface IUserLogin {
   role: string;
   email: string;
@@ -21,6 +18,9 @@ export interface IUserLogin {
   name: string;
   phone: number;
   gender: string;
+  address: string;
+  birthday: Date | string;
+  avatar: File | string;
 }
 
 export interface Product {

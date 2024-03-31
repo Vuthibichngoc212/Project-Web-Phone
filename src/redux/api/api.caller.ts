@@ -13,7 +13,7 @@ export const apiCaller = createApi({
       query: (user) => ({
         url: `/users`,
         method: 'POST',
-        body: { ...user, address: '', birthday: '', avatar: '' }
+        body: user
       })
     }),
     login: builder.mutation({
