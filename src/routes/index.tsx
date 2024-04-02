@@ -1,8 +1,7 @@
 import { Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { PATH } from 'app:constants';
-import { LazyLoading, ProtectedRoute } from 'components';
-import AdminLayout from 'layout';
+import { LazyLoading } from 'components';
 import routerList from './routes';
 
 const AppRoutes = () => {
@@ -11,13 +10,18 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<Navigate replace to={PATH.AUTH} />} />
 
-        <Route element={<ProtectedRoute />}>
-          <Route path="/" element={<AdminLayout />}>
-            {routerList.map(({ path, element }) => (
-              <Route key={path} path={path} element={element} />
-            ))}
-          </Route>
-        </Route>
+        {routerList.map(({ path, children, element }) => {
+          if (children) {
+            return (
+              <Route key={path} path={path} element={element}>
+                {children.map(({ element, path }) => (
+                  <Route key={path} path={path} element={element} />
+                ))}
+              </Route>
+            );
+          }
+          return <Route key={path} path={path} element={element} />;
+        })}
 
         <Route path="*" element={<Navigate replace to={PATH.AUTH} />} />
       </Routes>

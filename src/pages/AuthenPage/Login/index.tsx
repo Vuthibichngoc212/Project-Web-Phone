@@ -57,7 +57,7 @@ const Login: React.FC<LoginProps> = ({ onSignUpClicked }: LoginProps) => {
       const response: any = await loginUser(data);
       if (response?.data) {
         if (response?.data.role === 'admin') {
-          navigate('/home');
+          navigate('/admin');
         }
         // handleCokkie
         // navigate('/home');
