@@ -1,15 +1,25 @@
-import { Suspense } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Suspense, useEffect } from 'react';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { PATH } from 'app:constants';
 import { LazyLoading, ProtectedRoute } from 'components';
 import AdminLayout from 'layout';
+import Cookies from 'js-cookie';
 import routerList from './routes';
 
 const AppRoutes = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = Cookies.get('accessToken');
+    if (!token) {
+      navigate(PATH.AUTH);
+    } else navigate(PATH.HOME);
+  }, [navigate]);
+
   return (
     <Suspense fallback={<LazyLoading />}>
       <Routes>
-        <Route path="/" element={<Navigate replace to={PATH.AUTH} />} />
+        {/* <Route path="/" element={<Navigate replace to={PATH.AUTH} />} /> */}
 
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<AdminLayout />}>
