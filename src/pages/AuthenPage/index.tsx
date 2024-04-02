@@ -21,7 +21,7 @@ const AuthenPage = () => {
         {selectedTab === 0 && (
           <Login onSignUpClicked={() => setSelectedTab(1)} />
         )}
-        {selectedTab === 1 && <SignUp />}
+        {selectedTab === 1 && <SignUp onClickLogin={() => setSelectedTab(0)} />}
       </Paper>
     </StyledAll>
   );
