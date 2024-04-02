@@ -21,6 +21,7 @@
 //   cancelText?: string;
 //   cancelButtonProps?: ButtonProps;
 //   showCancel?: boolean;
+//   children: any;
 //   onOk?: (e?: MouseEvent<HTMLButtonElement>) => void;
 //   onCancel?: (e?: MouseEvent<HTMLButtonElement>) => void;
 // }
@@ -66,7 +67,8 @@
 //   });
 
 //   return (
-//     <React.Fragment>
+//     // <React.Fragment>
+//     <>
 //       {childrenWithProps}
 //       <Popover
 //         open={isOpen}
@@ -99,7 +101,7 @@
 //             <LoadingButton
 //               variant={okVariant}
 //               color="secondary"
-//               onClick={(e) => {
+//               onClick={(e: any) => {
 //                 onOk?.(e);
 //               }}
 //               loadingIndicator={
@@ -117,7 +119,8 @@
 //           </Stack>
 //         </Stack>
 //       </Popover>
-//     </React.Fragment>
+//     </>
+//     // </React.Fragment>
 //   );
 // };
 
