@@ -18,6 +18,8 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.13",
     "@mui/material": "^5.15.13",
+    "@mui/utils": "^5.15.14",
+    "@mui/x-data-grid": "^7.1.0",
     "@reduxjs/toolkit": "^1.9.7",
     "@shopify/polaris": "^12.1.1",
     "@shopify/polaris-icons": "^7.9.0",
