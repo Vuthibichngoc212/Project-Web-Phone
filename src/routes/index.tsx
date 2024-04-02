@@ -21,13 +21,20 @@ const AppRoutes = () => {
   return (
     <Suspense fallback={<LazyLoading />}>
       <Routes>
-        <Route element={<ProtectedRoute />}>
-          <Route path="/" element={<AdminLayout />}>
-            {routerList.map(({ path, element }) => (
-              <Route key={path} path={path} element={element} />
-            ))}
-          </Route>
-        </Route>
+        <Route path="/" element={<Navigate replace to={PATH.AUTH} />} />
+
+        {routerList.map(({ path, children, element }) => {
+          if (children) {
+            return (
+              <Route key={path} path={path} element={element}>
+                {children.map(({ element, path }) => (
+                  <Route key={path} path={path} element={element} />
+                ))}
+              </Route>
+            );
+          }
+          return <Route key={path} path={path} element={element} />;
+        })}
 
         <Route path="*" element={<Navigate replace to={PATH.AUTH} />} />
       </Routes>

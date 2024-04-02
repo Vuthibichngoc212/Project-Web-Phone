@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade/Fade';
-import iconWeb from '../../../assets/icon_web.png';
+import iconWeb from '../../assets/icon_web.png';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',

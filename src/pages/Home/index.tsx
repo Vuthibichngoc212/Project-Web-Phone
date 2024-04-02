@@ -1,4 +1,5 @@
-import AppHeaderBar from 'layout/components/AppHeader/indext';
+// import AppHeaderBar from 'layout/AppHeader/indext';
+import AppHeaderBar from 'layout/AppHeader/indext';
 import { StyledDashboard } from './styled';
 
 const Dashboard = () => {

@@ -1,5 +1,5 @@
 import { TooltipProps } from '@shopify/polaris';
-import { FunctionComponent, SVGProps } from 'react';
+import React, { FunctionComponent, SVGProps } from 'react';
 
 export interface IActionIcon {
   accessibilityLabel: string;
@@ -12,8 +12,13 @@ export interface IActionIcon {
 export interface IRouter {
   name?: string;
   path?: string;
-  element?: JSX.Element;
+  element?: JSX.Element | React.ReactNode;
   icon?: FunctionComponent<SVGProps<SVGSVGElement>>;
   actionIcon?: IActionIcon;
   hiddenInSidebar?: boolean;
+  children?: IRouter[];
+  sidebarProps?: {
+    displayText?: string;
+    icon?: React.ReactNode;
+  };
 }
