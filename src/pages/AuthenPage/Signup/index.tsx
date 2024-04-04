@@ -16,10 +16,7 @@ import {
 import AddIcon from '@mui/icons-material/Add';
 import Grid from '@mui/material/Grid';
 import { useForm } from 'react-hook-form';
-import {
-  useLazyGetListUserQuery,
-  useRegisterUserMutation
-} from 'redux/api/api.caller';
+import { useRegisterUserMutation } from 'redux/api/api.caller';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { IUserLogin } from 'interfaces/type';
@@ -27,8 +24,11 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Visibility from '@mui/icons-material/Visibility';
 import { StyledGird, StyledAll, StyledPaper } from '../styled';
 
-const SignUp = () => {
-  const [formKey, setFormKey] = useState(0);
+interface SigUpProps {
+  onClickLogin: () => void;
+}
+
+const SignUp: React.FC<SigUpProps> = ({ onClickLogin }: SigUpProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -39,21 +39,19 @@ const SignUp = () => {
   ) => {
     event.preventDefault();
   };
-  // const [getUserLazy] = useLazyGetListUserQuery();
   const [addUserRegister] = useRegisterUserMutation();
   const {
     register,
     watch,
-    reset,
     handleSubmit,
     formState: { errors }
   } = useForm<IUserLogin>({
     shouldFocusError: false,
     defaultValues: {
       role: 'user',
-      email: '',
-      password: '',
-      confirmPassword: ''
+      address: '',
+      birthday: '',
+      avatar: ''
     }
   });
   const handleBlur = (value: string) => {
@@ -66,45 +64,25 @@ const SignUp = () => {
     }
   };
   const onSubmit = async (data: IUserLogin) => {
-    // const { confirmPassword, ...userData } = data;
-    await addUserRegister(data).then((data: any) => {
+    const { confirmPassword, ...userData } = data;
+    await addUserRegister(userData).then((data: any) => {
       if (data?.data) {
-        toast.success('Đăng ký thành công!', {
+        toast.success('Đăng ký thành công', {
           position: 'bottom-right',
           autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
           theme: 'colored'
         });
-        reset();
-        setFormKey((prev) => prev + 1);
-        return;
+        setTimeout(() => {
+          onClickLogin();
+        }, 2100);
+      } else {
+        toast.error('Đăng ký không thành công kiểm tra lại', {
+          theme: 'colored',
+          autoClose: 2000,
+          position: 'bottom-right'
+        });
       }
-      toast.error('Đăng ký không thành công', {
-        theme: 'colored',
-        autoClose: 2000,
-        position: 'bottom-right'
-      });
     });
-
-    // if (response) {
-
-    // } else {
-    //   toast.error('Đăng ký không thành công', {
-    //     position: 'bottom-right',
-    //     autoClose: 2000,
-    //     theme: 'light'
-    //   });
-    // }
-    // const users = await getUserLazy();
-    // if (users?.data) {
-    //   const result = users?.data.find((item) => {
-    //     return item.email === data.email;
-    //   });
-    //   if(result) {}
-    // }
   };
 
   return (
@@ -121,16 +99,14 @@ const SignUp = () => {
               Sign Up
             </Typography>
           </StyledGird>
-          <form onSubmit={handleSubmit(onSubmit)} key={formKey}>
-            {/* <TextField
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <TextField
               fullWidth
               label="Name"
+              {...register('name')}
               placeholder="Enter your name"
               variant="standard"
-              {...register('name', { required: true })}
-              error={!!errors.name}
-              helperText={errors.name && errors.name.message}
-            /> */}
+            />
             <TextField
               fullWidth
               label="Email"
@@ -141,13 +117,13 @@ const SignUp = () => {
               error={!!errors.email}
               helperText={errors.email && errors.email.message}
             />
-            {/* <FormControl component="fieldset" error={!!errors.gender}>
+            <FormControl component="fieldset">
               <FormLabel component="legend" style={{ paddingTop: '8px' }}>
                 Gender
               </FormLabel>
               <RadioGroup
                 aria-label="gender"
-                {...register('gender', { required: true })}
+                {...register('gender')}
                 style={{ display: 'initial' }}
               >
                 <FormControlLabel
@@ -166,21 +142,14 @@ const SignUp = () => {
                   label="Other"
                 />
               </RadioGroup>
-              {errors.gender && (
-                <Typography color="error" variant="caption">
-                  {errors.gender.message}
-                </Typography>
-              )}
-            </FormControl> */}
-            {/* <TextField
+            </FormControl>
+            <TextField
               fullWidth
               label="Phone Number"
               placeholder="Enter your phone number"
               variant="standard"
-              {...register('phone', { required: true })}
-              error={!!errors.phone}
-              helperText={errors.phone && errors.phone.message}
-            /> */}
+              {...register('phone')}
+            />
             <TextField
               label="Password"
               placeholder="Enter password"

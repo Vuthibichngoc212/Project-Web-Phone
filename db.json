@@ -16,66 +16,6 @@
       }
     },
     {
-      "email": "ngoctest@gmail.com",
-      "password": "$2b$10$btIXxTKTD3eYXDqVbBDxguY8yd3Hw7Z4zZXhLlkU8qf5wWmKdIOzO",
-      "id": "5jH-FFi"
-    },
-    {
-      "email": "ngoctest12@gmail.com",
-      "password": "$2b$10$MPI/tbB0aRBe.ChY.KlqmeRDkYcVReTHGdzJgWPySHvDoycz77tQe",
-      "id": "rOdYR_A"
-    },
-    {
-      "email": "ngoc@gmail",
-      "password": "$2b$10$.eaXA./7wE57g8b.d5qlIueh9qVn6dkK/3SrgXT/uSAv0f6ZBzU.W",
-      "id": "UXFwAYV"
-    },
-    {
-      "email": "123@gmail.com",
-      "password": "$2b$10$v45EZiIvW.Yk5h/5k4cxEuWqNPxlZJFnDonhMllCSI62yFNxwsdr6",
-      "id": "jBfIc6X"
-    },
-    {
-      "email": "abc123@gmail.com",
-      "password": "$2b$10$Chjog1ML0dV9OmM.8jrMROPjGxxzqV5j/EosVfzqyhwNYLQJL/1Xe",
-      "id": "ZJpPnrJ"
-    },
-    {
-      "email": "111bbbb@gmail.com",
-      "password": "$2b$10$o9yhOtmVf65cJY4gdmw68.qeEOUEqPbIwPUMHzkAeQdbaAe3/BmYK",
-      "id": "8bVqFUV"
-    },
-    {
-      "address": "",
-      "gender": "",
-      "name": "Bích Ngọc",
-      "email": "bichngocTest@gmail.com",
-      "phone": "111115993",
-      "password": "$2b$10$Seov/tVthBhTZ12LOfVQbeJuwh1TXCf4RLd4PTK1jNYzHpTt5MgkO",
-      "id": "QReZQY2"
-    },
-    {
-      "role": "user",
-      "email": "12345@gmail.com",
-      "password": "$2b$10$A2T9uPlJ7LXN7zCUdZRPSeomU/tKyeS2P8ZQ7NvAjcvOiBRxIHAma",
-      "confirmPassword": "11",
-      "id": "gsvMH3A"
-    },
-    {
-      "role": "user",
-      "email": "fgffgfgf@gmail.com",
-      "password": "$2b$10$QFM1ofsqXPnh2uLUgyc7yejjzJXZlyWjvk6NRHUefzELX23KRfNgi",
-      "confirmPassword": "1",
-      "id": "hEWldM_"
-    },
-    {
-      "role": "user",
-      "email": "12333333@gmail.com",
-      "password": "$2b$10$JKBbEpuitCy9bWZN38a1Eesg.MWSi4SKeiMWXbyuhd4gL4EdMkYUO",
-      "confirmPassword": "1",
-      "id": "egCBbgH"
-    },
-    {
       "role": "user",
       "email": "son@gmail.com",
       "password": "$2b$10$5EpGmBV1u4C/Wp.lK0jhjODpQ8aUe3BmfMKqq/QPkpZtSKElmwEDG",
@@ -91,10 +31,183 @@
     },
     {
       "role": "user",
-      "email": "123aaaa@gmail.com",
-      "password": "$2b$10$mjByTZnSLA8PUETqoy57Ze.bbANNxg9ba/94pdH.3E/wO0EoSMgL.",
-      "confirmPassword": "1",
-      "id": "EKV724J"
+      "name": "",
+      "email": "NgocTest@gmail.com",
+      "password": "$2b$10$FrUI8yW0/5vLOWPtZFgy6eZeumcBVRR1AmB4AtAFXSeefpG0lvM8i",
+      "phone": "",
+      "gender": "female",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "id": "H68PEXk"
+    },
+    {
+      "role": "user",
+      "name": "",
+      "email": "abctest@gmail.com",
+      "gender": null,
+      "password": "$2b$10$LyTXlp2xdm/pfQP.zJXZxuP4NtTWYgOmHPcyN0DkdfgVDhchelTAC",
+      "phone": "",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "id": "JG_QiZc"
+    },
+    {
+      "role": "user",
+      "name": "",
+      "email": "abctest12@gmail.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$efgmUwWesyP7AY9UjxpPNOoOcjwtHUhyaU2L76ApaLwlL/enFzRU6",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "id": "RM1vq4T"
+    },
+    {
+      "role": "user",
+      "name": "",
+      "email": "test01@gmail.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$OMX5Myi5KhXxKQxfm.cA7.Td8gn2MHqxExW3Qz6N8OUzK.HvOGjyW",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "id": "dEBM2h9"
+    },
+    {
+      "role": "user",
+      "name": "",
+      "email": "test02@gmail.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$DiknGAKBTd8puazMQKF7LuIlNCYW7JB/TIaCKwxnJRfO/M9iFeaPC",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "id": "PMi12SY"
+    },
+    {
+      "role": "user",
+      "name": "",
+      "email": "test03@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$WJdQwHyb7UKqtSD2xRLGv.eWhwNq/qncKmm4T27SzrFy5vyUwMN/W",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "id": "fTq40a0"
+    },
+    {
+      "role": "user",
+      "name": "",
+      "email": "test04@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$p45HPpd.HXZ/ALXN4IXU8./p59xmi63Z.7F22aBl6Sb6nYSObr/0K",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "id": "Y-NtNP8"
+    },
+    {
+      "role": "user",
+      "name": "",
+      "email": "test05@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$BbLs3RZo3aqwkKDLjh/s9.gCZXZ./LqRQGbzjj9DZwkFMI7e9lXYW",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "id": "cMfm9Pa"
+    },
+    {
+      "role": "user",
+      "name": "",
+      "email": "test06@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$TzeWW.W43fx32hCxse4CCOXYEvczMApKWQw6wFjMZbyazA0k9pSUm",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "id": "2JRDuHL"
+    },
+    {
+      "role": "user",
+      "name": "",
+      "email": "test07@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$YdpEi6168OO4hUD8D3hfqOceUB65iARXj.K..BBpmaI5IEI/4hywq",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "id": "_qf-3ae"
+    },
+    {
+      "role": "user",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "name": "",
+      "email": "test09@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$lWVmjjL4bY6KJXbwV4rKQOUy9eWYJxMk4DC/QPtyCg0PmwFI/7I7C",
+      "id": "qqDQDDE"
+    },
+    {
+      "role": "user",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "name": "",
+      "email": "test08@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$ytDXyBODUTO7sPSVJtZHcuoZsLkV1OyETFlRZ3HLOoP1rf4NH2XtO",
+      "id": "2x-FwNP"
+    },
+    {
+      "role": "user",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "name": "",
+      "email": "test10@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$eaYj2xvWNSPq8ZIyNNd.EOlHBDeNTbCAPP40L4F46gRubHdOFiEjG",
+      "id": "X11PLQZ"
+    },
+    {
+      "role": "user",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "name": "",
+      "email": "test111@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$AmimeVzPcLeeX8064ROfKe9wyt.4m8cTkJeQAV86u0kvOuZJlfAG6",
+      "id": "m16Bhop"
+    },
+    {
+      "role": "user",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "name": "",
+      "email": "test112@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$HfL5SgnqgpnBc1a7iXU0g.wlVJJgOO1.TmRFVDfbmEDJeGZDCe18O",
+      "id": "ByvoWQi"
     }
   ],
   "products": [

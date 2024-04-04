@@ -8,14 +8,16 @@ import Badge from '@mui/material/Badge';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 // import MoreIcon from '@mui/icons-material/MoreVert';
-// import { styled, alpha } from '@mui/material/styles';
-// import InputBase from '@mui/material/InputBase';
+import Cookies from 'js-cookie';
+import { styled, alpha } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade/Fade';
-import ListSearch from 'pages/components/Search';
+import { useNavigate } from 'react-router-dom';
 import iconWeb from '../../assets/icon_web.png';
+import ListSearch from 'pages/components/Search';
 
 // const Search = styled('div')(({ theme }) => ({
 //   position: 'relative',
@@ -56,14 +58,21 @@ import iconWeb from '../../assets/icon_web.png';
 //   }
 // }));
 export default function AppHeaderBar() {
-  // const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  // const open = Boolean(anchorEl);
-  // const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
+  const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleLogout = () => {
+    Cookies.remove('cookie_shop_customer');
+    handleClose();
+    navigate('/auth');
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar sx={{ backgroundColor: '#101010' }}>
@@ -110,7 +119,7 @@ export default function AppHeaderBar() {
             </IconButton>
           </Box> */}
         </Toolbar>
-        {/* <Menu
+        <Menu
           id="fade-menu"
           MenuListProps={{
             'aria-labelledby': 'fade-button',
@@ -123,8 +132,8 @@ export default function AppHeaderBar() {
         >
           <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
           <MenuItem onClick={handleClose}>Đơn hàng của tôi</MenuItem>
-          <MenuItem onClick={handleClose}>Đăng xuất</MenuItem>
-        </Menu> */}
+          <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
+        </Menu>
       </AppBar>
     </Box>
   );

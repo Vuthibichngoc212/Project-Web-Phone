@@ -17,11 +17,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import LockIcon from '@mui/icons-material/Lock';
+import Cookies from 'js-cookie';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 // import Home from 'pages/Home';
 import { IUser } from 'interfaces/type';
-// import { useLazyGetListUserQuery } from 'redux/api/api.caller';
 import { useLoginMutation } from 'redux/api/api.caller';
 import { StyledGird, StyledAll, StyledPaper } from '../styled';
 
@@ -49,25 +49,32 @@ const Login: React.FC<LoginProps> = ({ onSignUpClicked }: LoginProps) => {
       password: ''
     }
   });
-  // const [getUserLazy] = useLazyGetListUserQuery();
   const [loginUser] = useLoginMutation();
 
   const onSubmit = async (data: IUser) => {
     try {
-      const response: any = await loginUser(data);
-      if (response?.data) {
-        if (response?.data.role === 'admin') {
-          navigate('/home');
+      loginUser(data).then((response: any) => {
+        if (response?.data) {
+          const token = response?.data.accessToken;
+          const cookieOptions = {
+            expires: 7
+          };
+
+          const { role } = response.data;
+          if (role === 'admin') {
+            Cookies.set('cookie_shop_admin', token, cookieOptions);
+            navigate('/admin');
+          } else {
+            Cookies.set('cookie_shop_customer', token, cookieOptions);
+            navigate('/home');
+          }
+          return;
         }
-        // handleCokkie
-        // navigate('/home');
-        toast.success('Đăng nhập thành công!');
-        return;
-      }
-      toast.error('Đăng nhập thất bại sai email hoặc password', {
-        theme: 'colored',
-        autoClose: 2000,
-        position: 'bottom-right'
+        toast.error('Đăng nhập thất bại sai email hoặc password', {
+          theme: 'colored',
+          autoClose: 2000,
+          position: 'bottom-right'
+        });
       });
     } catch (error) {}
   };
