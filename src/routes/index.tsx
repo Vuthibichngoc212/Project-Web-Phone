@@ -1,43 +1,60 @@
-import { Suspense, useEffect, useMemo } from 'react';
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import { useEffect, useMemo } from 'react';
+import {
+  useLocation,
+  Navigate,
+  Route,
+  Routes,
+  useNavigate
+} from 'react-router-dom';
 import { PATH } from 'app:constants';
-import { LazyLoading } from 'components';
+// import { LazyLoading } from 'components';
 import Cookies from 'js-cookie';
 import routerList from './routes';
 
 const AppRoutes = () => {
   const navigate = useNavigate();
-  const token = Cookies.get('accessToken');
+  const pathName = useLocation().pathname;
+  const token_admin = Cookies.get('cookie_shop_admin');
+  // const token_customer = Cookies.get('cookie_shop_customer');
 
   const destinationPath = useMemo(() => {
-    return token ? PATH.HOME : PATH.AUTH;
-  }, [token]);
+    if (pathName.includes('admin')) {
+      if (token_admin) {
+        return PATH.ADMIN;
+      }
+      return PATH.AUTH;
+    }
+    return '';
+  }, [token_admin, pathName]);
 
   useEffect(() => {
-    navigate(destinationPath);
-  }, [destinationPath, navigate]);
+    if (destinationPath) {
+      navigate(destinationPath);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [destinationPath]);
 
   return (
-    <Suspense fallback={<LazyLoading />}>
-      <Routes>
-        <Route path="/" element={<Navigate replace to={PATH.AUTH} />} />
+    // <Suspense fallback={<LazyLoading />}>
+    <Routes>
+      <Route path="/" element={<Navigate replace to={PATH.HOME} />} />
 
-        {routerList.map(({ path, children, element }) => {
-          if (children) {
-            return (
-              <Route key={path} path={path} element={element}>
-                {children.map(({ element, path }) => (
-                  <Route key={path} path={path} element={element} />
-                ))}
-              </Route>
-            );
-          }
-          return <Route key={path} path={path} element={element} />;
-        })}
+      {routerList.map(({ path, children, element }) => {
+        if (children) {
+          return (
+            <Route key={path} path={path} element={element}>
+              {children.map(({ element, path }) => (
+                <Route key={path} path={path} element={element} />
+              ))}
+            </Route>
+          );
+        }
+        return <Route key={path} path={path} element={element} />;
+      })}
 
-        <Route path="*" element={<Navigate replace to={PATH.AUTH} />} />
-      </Routes>
-    </Suspense>
+      <Route path="*" element={<Navigate replace to={PATH.AUTH} />} />
+    </Routes>
+    // </Suspense>
   );
 };
 

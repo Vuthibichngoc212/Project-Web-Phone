@@ -56,20 +56,18 @@ const Login: React.FC<LoginProps> = ({ onSignUpClicked }: LoginProps) => {
       loginUser(data).then((response: any) => {
         if (response?.data) {
           const token = response?.data.accessToken;
-          Cookies.set('accessToken', token, {
+          const cookieOptions = {
             expires: 7
-          });
+          };
 
-          if (response?.data.role === 'admin') {
+          const { role } = response.data;
+          if (role === 'admin') {
+            Cookies.set('cookie_shop_admin', token, cookieOptions);
             navigate('/admin');
+          } else {
+            Cookies.set('cookie_shop_customer', token, cookieOptions);
+            navigate('/home');
           }
-          navigate('/home');
-
-          toast.success('Đăng nhập thành công', {
-            theme: 'colored',
-            autoClose: 2000,
-            position: 'bottom-right'
-          });
           return;
         }
         toast.error('Đăng nhập thất bại sai email hoặc password', {

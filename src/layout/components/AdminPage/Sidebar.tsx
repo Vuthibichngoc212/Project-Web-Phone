@@ -11,14 +11,19 @@ import {
 import colorConfigs from 'layout/configs/const colorConfigs';
 import sizeConfigs from 'layout/configs/sizeConfigs';
 import routerList from 'routes/routes';
-import { NavLink } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { NavLink, useNavigate } from 'react-router-dom';
 import iconWeb from '../../../assets/icon_web.png';
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const adminRoute = routerList.find((route) => route.name === 'Admin');
   const adminRoutes = adminRoute?.children ?? [];
 
-  // console.log({ adminRoutes });
+  const handleLogout = () => {
+    Cookies.remove('cookie_shop_admin');
+    navigate('/auth');
+  };
 
   return (
     <Drawer
@@ -47,7 +52,11 @@ const Sidebar = () => {
         </Toolbar>
         {adminRoutes.map((route, index) =>
           route.path ? (
-            <ListItem button key={index}>
+            <ListItem
+              button
+              key={index}
+              onClick={route.name === 'Logout' ? handleLogout : undefined}
+            >
               <NavLink
                 to={route.path}
                 style={({ isActive }) => ({
