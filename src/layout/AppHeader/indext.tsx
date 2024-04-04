@@ -8,13 +8,15 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 // import MoreIcon from '@mui/icons-material/MoreVert';
+import Cookies from 'js-cookie';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade/Fade';
-import iconWeb from '../../../assets/icon_web.png';
+import { useNavigate } from 'react-router-dom';
+import iconWeb from '../../assets/icon_web.png';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -55,6 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   }
 }));
 export default function AppHeaderBar() {
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -63,6 +66,12 @@ export default function AppHeaderBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleLogout = () => {
+    Cookies.remove('cookie_shop_customer');
+    handleClose();
+    navigate('/auth');
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar sx={{ backgroundColor: '#101010' }}>
@@ -119,7 +128,7 @@ export default function AppHeaderBar() {
         >
           <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
           <MenuItem onClick={handleClose}>Đơn hàng của tôi</MenuItem>
-          <MenuItem onClick={handleClose}>Đăng xuất</MenuItem>
+          <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
         </Menu>
       </AppBar>
     </Box>

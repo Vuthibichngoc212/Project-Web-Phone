@@ -196,6 +196,18 @@
       "phone": "",
       "password": "$2b$10$AmimeVzPcLeeX8064ROfKe9wyt.4m8cTkJeQAV86u0kvOuZJlfAG6",
       "id": "m16Bhop"
+    },
+    {
+      "role": "user",
+      "address": "",
+      "birthday": "",
+      "avatar": "",
+      "name": "",
+      "email": "test112@gmai.com",
+      "gender": null,
+      "phone": "",
+      "password": "$2b$10$HfL5SgnqgpnBc1a7iXU0g.wlVJJgOO1.TmRFVDfbmEDJeGZDCe18O",
+      "id": "ByvoWQi"
     }
   ],
   "products": [
