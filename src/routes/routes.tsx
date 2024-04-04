@@ -1,14 +1,20 @@
 import { PATH } from 'app:constants';
 import { IRouter } from 'interfaces/route';
-import { lazy } from 'react';
+import OrdersPage from 'pages/Admin/OrdersPage';
+import ProductsPage from 'pages/Admin/ProductsPage';
+import UsersPage from 'pages/Admin/UsersPage';
+import AuthenPage from 'pages/AuthenPage';
+import HomePage from 'pages/Home';
+import AdminPage from 'pages/Admin';
 
-const HomePage = lazy(() => import('pages/Home'));
-const AuthenPage = lazy(() => import('pages/AuthenPage'));
-const AdminPage = lazy(() => import('pages/Admin'));
-// const AdminLayout = lazy(() => import('layout/Admin'));
-const OrdersPage = lazy(() => import('pages/Admin/OrdersPage'));
-const ProductsPage = lazy(() => import('pages/Admin/ProductsPage'));
-const UsersPage = lazy(() => import('pages/Admin/UsersPage'));
+// import { lazy } from 'react';
+
+// const HomePage = lazy(() => import('pages/Home'));
+// const AuthenPage = lazy(() => import('pages/AuthenPage'));
+// const AdminPage = lazy(() => import('pages/Admin'));
+// const OrdersPage = lazy(() => import('pages/Admin/OrdersPage'));
+// const ProductsPage = lazy(() => import('pages/Admin/ProductsPage'));
+// const UsersPage = lazy(() => import('pages/Admin/UsersPage'));
 
 const routerList: Array<IRouter> = [
   {
@@ -43,7 +49,6 @@ const routerList: Array<IRouter> = [
       },
       {
         path: PATH.LOGOUT,
-        // element: <UsersPage />,
         name: 'Logout'
       }
     ]
