@@ -19,7 +19,7 @@ import { useForm } from 'react-hook-form';
 import { useRegisterUserMutation } from 'redux/api/api.caller';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { IUserLogin } from 'interfaces/type';
+import { IUserData } from 'interfaces/users';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Visibility from '@mui/icons-material/Visibility';
 import { StyledGird, StyledAll, StyledPaper } from '../styled';
@@ -45,7 +45,7 @@ const SignUp: React.FC<SigUpProps> = ({ onClickLogin }: SigUpProps) => {
     watch,
     handleSubmit,
     formState: { errors }
-  } = useForm<IUserLogin>({
+  } = useForm<IUserData>({
     shouldFocusError: false,
     defaultValues: {
       role: 'user',
@@ -63,7 +63,7 @@ const SignUp: React.FC<SigUpProps> = ({ onClickLogin }: SigUpProps) => {
       });
     }
   };
-  const onSubmit = async (data: IUserLogin) => {
+  const onSubmit = async (data: IUserData) => {
     const { confirmPassword, ...userData } = data;
     await addUserRegister(userData).then((data: any) => {
       if (data?.data) {

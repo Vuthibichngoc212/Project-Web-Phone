@@ -21,8 +21,10 @@ import Cookies from 'js-cookie';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 // import Home from 'pages/Home';
-import { IUser } from 'interfaces/type';
+import { IUser } from 'interfaces/users';
 import { useLoginMutation } from 'redux/api/api.caller';
+import { useDispatch } from 'react-redux';
+import { setUser } from 'redux/features/dashboard.slice';
 import { StyledGird, StyledAll, StyledPaper } from '../styled';
 
 interface LoginProps {
@@ -31,6 +33,7 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = ({ onSignUpClicked }: LoginProps) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (
@@ -59,6 +62,7 @@ const Login: React.FC<LoginProps> = ({ onSignUpClicked }: LoginProps) => {
           const cookieOptions = {
             expires: 7
           };
+          dispatch(setUser(response.data));
 
           const { role } = response.data;
           if (role === 'admin') {

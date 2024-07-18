@@ -37,7 +37,10 @@ const AppRoutes = () => {
   return (
     // <Suspense fallback={<LazyLoading />}>
     <Routes>
-      <Route path="/" element={<Navigate replace to={PATH.HOME} />} />
+      <Route
+        path="/"
+        element={<Navigate replace to={PATH.HOME_LAYOUT.HOME_PAGE} />}
+      />
 
       {routerList.map(({ path, children, element }) => {
         if (children) {

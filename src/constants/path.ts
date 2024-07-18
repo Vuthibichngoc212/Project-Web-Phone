@@ -1,10 +1,19 @@
 export const PATH = {
   AUTH: '/auth',
-  HOME: '/home',
+  // HOME: '/home',
+  HOME_LAYOUT: {
+    HOME_PAGE: '/home',
+    PRODUCTS: '/home/products',
+    NEWS: '/home/news',
+    INTRODUCE: '/home/introduce'
+  },
+
   ADMIN: '/admin',
-  ORDERS: '/admin/orders',
-  PRODUCTS: '/admin/products',
-  USERS: '/admin/users',
+  ADMIN_PAGE: {
+    AD_ORDERS: '/admin/orders',
+    AD_PRODUCTS: '/admin/products',
+    AD_USERS: '/admin/users'
+  },
   LOGOUT: 'logout'
 };
 

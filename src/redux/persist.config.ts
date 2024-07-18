@@ -1,8 +1,8 @@
 import { PersistConfig } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { DashboardState } from './features/dashboard.slice';
+import { IDashboardState } from './features/dashboard.slice';
 
-export const dashboardPersistConfig: PersistConfig<DashboardState> = {
+export const dashboardPersistConfig: PersistConfig<IDashboardState> = {
   key: 'dashboard',
   storage
 };
