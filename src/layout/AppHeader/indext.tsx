@@ -2,139 +2,47 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
-// import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-// import MoreIcon from '@mui/icons-material/MoreVert';
-import Cookies from 'js-cookie';
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Fade from '@mui/material/Fade/Fade';
-import { useNavigate } from 'react-router-dom';
-import iconWeb from '../../assets/icon_web.png';
 import ListSearch from 'pages/components/Search';
+import Account from 'pages/components/Account';
+import { ButtonBase, Grid } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import ShoppCart from 'pages/components/ShopCart';
+import iconWeb from '../../assets/icon_web.png';
 
-// const Search = styled('div')(({ theme }) => ({
-//   position: 'relative',
-//   borderRadius: theme.shape.borderRadius,
-//   backgroundColor: alpha(theme.palette.common.white, 0.15),
-//   '&:hover': {
-//     backgroundColor: alpha(theme.palette.common.white, 0.25)
-//   },
-//   marginLeft: 0,
-//   width: '100%',
-//   [theme.breakpoints.up('sm')]: {
-//     marginLeft: theme.spacing(1),
-//     width: 'auto'
-//   }
-// }));
-
-// const SearchIconWrapper = styled('div')(({ theme }) => ({
-//   padding: theme.spacing(0, 2),
-//   height: '100%',
-//   position: 'absolute',
-//   pointerEvents: 'none',
-//   display: 'flex',
-//   alignItems: 'center',
-//   justifyContent: 'center'
-// }));
-
-// const StyledInputBase = styled(InputBase)(({ theme }) => ({
-//   color: 'inherit',
-//   '& .MuiInputBase-input': {
-//     padding: theme.spacing(1, 1, 1, 0),
-//     // vertical padding + font size from searchIcon
-//     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-//     transition: theme.transitions.create('width'),
-//     width: '100%',
-//     [theme.breakpoints.up('md')]: {
-//       width: '20ch'
-//     }
-//   }
-// }));
-export default function AppHeaderBar() {
+export default function AppHeaderBar({ children }: any) {
   const navigate = useNavigate();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
+  const handleClick = () => {
+    navigate('/home');
   };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const handleLogout = () => {
-    Cookies.remove('cookie_shop_customer');
-    handleClose();
-    navigate('/auth');
-  };
-
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <AppBar sx={{ backgroundColor: '#101010' }}>
         <Toolbar>
-          <img
-            src={iconWeb}
-            alt=""
-            style={{ width: '96px', height: '50px', marginRight: '50px' }}
-          />
-          {/* <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Tìm kiếm…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search> */}
-          <Box sx={{ pl: '30px', py: '10px', width: '60%' }}>
-            <ListSearch />
-          </Box>
-          <Box sx={{ flexGrow: 1 }} />
-          {/* <Box>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-haspopup="true"
-              color="inherit"
-              onMouseOver={handleOpen}
-            >
-              <AccountCircle />
-              <Typography>Tài khoản</Typography>
-            </IconButton>
-
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <ShoppingCartIcon />
-                <Typography>Giỏ hàng</Typography>
-              </Badge>
-            </IconButton>
-          </Box> */}
+          <Grid container alignItems="center">
+            <Grid item xs={2} md={1}>
+              <ButtonBase onClick={handleClick}>
+                <img
+                  src={iconWeb}
+                  alt=""
+                  style={{ width: '100%', maxWidth: '96px', height: '50px' }}
+                />
+              </ButtonBase>
+            </Grid>
+            <Grid item xs={10} md={8} lg={9}>
+              <ListSearch />
+            </Grid>
+            <Grid item xs={12} md={3} lg={2}>
+              <Box sx={{ display: 'flex', gap: 2 }}>
+                <Account />
+                <ShoppCart />
+              </Box>
+            </Grid>
+          </Grid>
         </Toolbar>
-        <Menu
-          id="fade-menu"
-          MenuListProps={{
-            'aria-labelledby': 'fade-button',
-            onMouseLeave: handleClose
-          }}
-          anchorEl={anchorEl}
-          open={open}
-          // onClose={handleClose}
-          TransitionComponent={Fade}
-        >
-          <MenuItem onClick={handleClose}>Thông tin tài khoản</MenuItem>
-          <MenuItem onClick={handleClose}>Đơn hàng của tôi</MenuItem>
-          <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
-        </Menu>
       </AppBar>
+      <Box style={{ maxWidth: '96px', height: '50px', paddingTop: '10px' }}>
+        {children}
+      </Box>
     </Box>
   );
 }

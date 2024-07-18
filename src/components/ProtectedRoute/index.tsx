@@ -13,7 +13,7 @@ const ProtectedRoute = () => {
     }
 
     if (token_customer) {
-      return PATH.HOME;
+      return PATH.HOME_LAYOUT.HOME_PAGE;
     }
     return PATH.AUTH;
   }, [token_admin, token_customer]);

@@ -213,23 +213,69 @@
   "products": [
     {
       "id": "abc1",
-      "name": "Samsung Galaxy S22 5G 128GB ",
-      "description": "Mô tả sản phẩm XYZ",
+      "code": "SamS",
+      "name": "Samsung Galaxy S22 5G 128GB",
+      "description": {
+        "head": "Tên mô tả",
+        "body": "Mô tả chi tiết"
+      },
+      "imageURL": "link-to-image-of-product-XYZ",
+      "promotion": "Không có",
+      "quantity": 100,
       "price": "124.900.00",
       "brand": "XYZ Inc.",
-      "category": "Smartphone",
-      "imageURL": "link-to-image-of-product-XYZ",
-      "inStock": true
+      "category": "Smartphone"
     },
     {
       "id": "abc2",
+      "code": "SamS",
       "name": "Điện thoại AI Samsung Galaxy S24+",
-      "description": "Chào mừng bạn đến với Kỷ nguyên Điện thoại AI Quyền năng. Với Galaxy S24| S24+ trong tay, bạn sẽ tạo nên những đột phá trong sáng tạo vá công việc cũng như mở khóa những tiềm năng mới không giới hạn - tất cả đều bắt đầu từ chiếc điện thoại thông minh của bạn.",
+      "description": {
+        "head": "Tên mô tả",
+        "body": "Mô tả chi tiết"
+      },
+      "imageURL": "link-to-image-of-product-XYZ",
+      "promotion": "Không có",
+      "quantity": 10,
       "price": 900,
       "brand": "XYZ Inc.",
-      "category": "Smartphone",
-      "imageURL": "link-to-image-of-product-XYZ",
-      "inStock": false
+      "category": "Smartphone"
+    },
+    {
+      "code": "a1",
+      "name": "Test",
+      "price": "12",
+      "id": "ljd-t__"
+    },
+    {
+      "code": "a2",
+      "name": "Test02",
+      "price": "5",
+      "id": "un5Ltig"
+    },
+    {
+      "code": "a3",
+      "name": "Test03",
+      "price": "10000",
+      "id": "KELzCJo"
+    },
+    {
+      "code": "a4",
+      "name": "Test04",
+      "price": "100.000",
+      "id": "A7KX-Mc"
+    }
+  ],
+  "categories": [
+    {
+      "id": "abc1",
+      "name": "Điện thoại",
+      "imageURL": "link-to-image-of-product-XYZ"
+    },
+    {
+      "id": "abc2",
+      "name": "Iphone",
+      "imageURL": "link-to-image-of-product-XYZ"
     }
   ],
   "orders": [

@@ -1,43 +1,30 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { IUser } from 'interfaces/type';
+import { IUserData } from 'interfaces/users';
 import { RootState } from '../store';
 
-export interface DashboardState {
-  value: number;
-  user: IUser | null;
-  isLoading: boolean;
-  error: string | null;
+export interface IDashboardState {
+  users: IUserData[];
 }
 
-const initialState: DashboardState = {
-  value: 0,
-  user: null,
-  isLoading: false,
-  error: null
+const initialState: IDashboardState = {
+  users: []
 };
 
 export const dashboardSlice = createSlice({
   name: 'dashboard',
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<IUser>) => {
-      state.user = action.payload;
+    setUser: (state, action: PayloadAction<IUserData>) => {
+      state.users = [...state.users, action.payload];
     },
-    clearUser: (state) => {
-      state.user = null;
-    },
-    setLoading: (state, action) => {
-      state.isLoading = action.payload;
-    },
-    setError: (state, action) => {
-      state.error = action.payload;
+    setUserLogout: (state) => {
+      state.users = [];
     }
   }
 });
 
-export const { setUser, clearUser, setLoading, setError } =
-  dashboardSlice.actions;
+export const { setUser, setUserLogout } = dashboardSlice.actions;
 
-export const selectCount = (state: RootState) => state.dashboard.value;
+export const userSelector = (state: RootState) => state.dashboard.users;
 
 export default dashboardSlice.reducer;
